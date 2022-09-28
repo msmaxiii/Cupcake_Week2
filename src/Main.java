@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Cupcake> cupcakeMenu = new ArrayList<Cupcake>();
-
         Cupcake cupcake = new Cupcake();
         RedVelvet redVelvet = new RedVelvet();
         Chocolate chocolate = new Chocolate();
@@ -44,8 +43,78 @@ public class Main {
         cupcakeMenu.add(cupcake);
         cupcakeMenu.add(redVelvet);
         cupcakeMenu.add(chocolate);
+
+    ArrayList<Drink>drinkMenu = new ArrayList<Drink>();
+        Drink water  = new Drink();
+        Soda soda = new Soda();
+        Milk milk = new Milk();
+    System.out.println("We are in the middle of creating the drink menu. We currently have three drink on" + "\nthe menu but we need to decide on pricing");
+
+//    Scanner input = new Scanner(System.in);
+
+    System.out.println("We are deciding on the price for our water. Here is the description:");
+     water.type();
+
+      System.out.println("How much would you like to charge for the water?" + "\n(Input a numerical number taken to 2 decimal places)");
+     priceText = input.nextLine();
+    price = Double.parseDouble(priceText);
+
+     water.setPrice(price);
+
+     System.out.println("We are deciding on the price for our soda. Here is the description: ");
+     soda.type();
+
+     System.out.println("How much would you like to charge for the soda?" + "\n(Input a numerical number taken to 2 decimal places)");
+
+     priceText = input.nextLine();
+     price = Double.parseDouble(priceText);
+
+     soda.setPrice(price);
+
+      System.out.println("We are deciding on the price for our milk. Here is the description: ");
+     milk.type();
+
+     System.out.println("How much would you like to charge for the milk?" + "\n(Input a numerical number taken to 2 decimal places)");
+
+    priceText = input.nextLine();
+    price = Double.parseDouble(priceText);
+
+     milk.setPrice(price);
+
+
+        drinkMenu.add(water);
+        drinkMenu.add(soda);
+        drinkMenu.add(milk);
+}
+
+    public static class Soda extends Drink {
+        private double price;
+
+        public void type() {
+        }
+
+        public void setPrice(double price) {
+            this.price = price;
+        }
+
+        public double getPrice() {
+            return price;
+        }
     }
+
+    public static class Milk extends Drink {
+        public void type() {
+        }
+
+        public void setPrice(double price) {
+        }
     }
+
+    public static class Water {
+        public void type() {
+        }
+    }
+}
 class Cupcake {
     public double price;
     public double getPrice(){
@@ -70,6 +139,30 @@ class Cupcake {
                 System.out.println("A chocolate based cupcake, with chocolate frosting");
             }
         }
+            class Drink {
+                public double price;
+                public double getPrice(){
+                    return price;
+                }
+                public void setPrice(double price){
+                    this.price = price;
+                }
+                public void type() {
+                    System.out.println("A bottle of water");
+                }
+            class Soda extends Drink {
+                public void type() {
+                    System.out.println("A bottle of soda.");
+                }
+
+                class Milk extends Drink {
+                    public void type() {
+                        System.out.println("A bottle of milk.");
+                    }
+                }
+            }}
+
+
 
 
 
