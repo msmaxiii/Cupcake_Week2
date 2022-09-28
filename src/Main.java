@@ -50,7 +50,7 @@ public class Main {
         Milk milk = new Milk();
     System.out.println("We are in the middle of creating the drink menu. We currently have three drink on" + "\nthe menu but we need to decide on pricing");
 
-//    Scanner input = new Scanner(System.in);
+
 
     System.out.println("We are deciding on the price for our water. Here is the description:");
      water.type();
@@ -86,6 +86,7 @@ public class Main {
         drinkMenu.add(soda);
         drinkMenu.add(milk);
 }
+//    new Order(cupcakeMenu, drinkMenu);
 
     public static class Soda extends Drink {
         private double price;
