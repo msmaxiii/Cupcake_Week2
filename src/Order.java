@@ -12,49 +12,136 @@ public class Order {
         Scanner input = new Scanner(System.in);
         String placeOrder = input.nextLine();
 
-        int itemNumber = 0;
 
         ArrayList<Object> order = new ArrayList<Object>();
-        if (placeOrder.equalsIgnoreCase("Y")) {
-            order.add(LocalDate.now());
-            order.add(LocalTime.now());
 
-            System.out.println("Here is the menu.");
-            System.out.println("CUPCAKES");
-            for (int i = 0; i < cupcakeMenu.size(); i++) {
-                itemNumber++;
-                System.out.println(itemNumber + ".");
-            }
+        if (placeOrder.equalsIgnoreCase("Y")) {
+
         } else {
             System.out.println("Have a nice day then");
         }
-        int i = 0;
-        cupcakeMenu.get(i).type();
-        System.out.println("Price: $" + cupcakeMenu.get(i).getPrice());
 
-        System.out.println();
+        order.add(LocalDate.now());
+        order.add(LocalTime.now());
+
+        System.out.println("Here is the menu.");
+        System.out.println("CUPCAKES");
+
+        int itemNumber = 0;
+        for (int i = 0; i < cupcakeMenu.size(); i++) {
+            itemNumber++;
+            System.out.println(itemNumber + ".");
+            cupcakeMenu.get(i).type();
+            System.out.println("Price: $" + cupcakeMenu.get(i).getPrice());
+
+            System.out.println();
+        }
+
         System.out.println("DRINKS");
 
         for (int i = 0; i < drinkMenu.size(); i++) {
             itemNumber++;
             System.out.println(itemNumber + ".");
-        }
-        drinkMenu.get(i).type();
-        System.out.println("Price: $" + drinkMenu.get(i).getPrice());
+            drinkMenu.get(i).type();
+            System.out.println("Price: $" + drinkMenu.get(i).getPrice());
 
-        System.out.println();
+            System.out.println();
+        }
 
         boolean ordering = true;
-        while (ordering)
-            System.out.println("What would you like to order? Please use the number associated with each item to order");
+        while (ordering) {
+
+            int orderChoice = 0;
+            if (orderChoice == 1) {
+                order.add(cupcakeMenu.get(0));
+                System.out.println("What would you like to order? Please use the number associated with each item to order");
+                System.out.println("Item added to order");
+
+                orderChoice = input.nextInt();
+                input.nextLine();
+
+            } else if (orderChoice == 2) {
+                order.add(cupcakeMenu.get(1));
+                System.out.println("Item added to order");
+
+            } else if (orderChoice == 3) {
+                order.add(cupcakeMenu.get(2));
+                System.out.println("Item added to order");
+
+            } else if (orderChoice == 4) {
+                order.add(drinkMenu.get(0));
+                System.out.println("Item added to order");
+
+            } else if (orderChoice == 5) {
+                order.add(drinkMenu.get(1));
+                System.out.println("Item added to order");
+
+            } else if (orderChoice == 6) {
+                order.add(drinkMenu.get(2));
+                System.out.println("Item added to order");
+
+            } else {
+                System.out.println("Sorry, we don't seem to have that on the menu");
+                System.out.println("Would you like to continue ordering? (Y/N)");
+            }
+            input.nextLine();
+            String continueOrder = input.nextLine();
+
+            if (!continueOrder.equalsIgnoreCase("Y")) ;
+            ordering = false;
+
+            System.out.println(0);
+            System.out.println(1);
+
+            Double subTotal = 0.0;
+            for (int i = 2; i < order.size(); i++) {
+                if (order.get(i).equals(cupcakeMenu.get(0))) {
+                    cupcakeMenu.get(0).type();
+                    System.out.println(cupcakeMenu.get(0).getPrice());
+                    subTotal = subTotal + cupcakeMenu.get(0).getPrice();
+
+                } else if (order.get(i).equals(cupcakeMenu.get(1))) {
+                    cupcakeMenu.get(1).type();
+                    System.out.println(cupcakeMenu.get(1).getPrice());
+                    subTotal = subTotal + cupcakeMenu.get(1).getPrice();
+
+                } else if (order.get(i).equals(cupcakeMenu.get(2))) {
+                    cupcakeMenu.get(2).type();
+                    System.out.println(cupcakeMenu.get(2).getPrice());
+                    subTotal = subTotal + cupcakeMenu.get(2).getPrice();
+
+                } else if (order.get(i).equals(drinkMenu.get(0))) {
+                    drinkMenu.get(0).type();
+                    System.out.println(drinkMenu.get(0).getPrice());
+                    subTotal = subTotal + drinkMenu.get(0).getPrice();
+
+                } else if (order.get(i).equals(drinkMenu.get(1))) {
+                    drinkMenu.get(1).type();
+                    System.out.println(drinkMenu.get(1).getPrice());
+                    subTotal = subTotal + drinkMenu.get(1).getPrice();
+
+                } else if (order.get(i).equals(drinkMenu.get(2))) {
+                    drinkMenu.get(2).type();
+                    System.out.println(drinkMenu.get(2).getPrice());
+                    subTotal = subTotal + drinkMenu.get(2).getPrice();
+                }
+                System.out.println("$" + subTotal + "\n");
+            }
+        }
     }
-
-
-
-
-
-
-
-
 }
+   class CreateFile{
+
+   }
+
+
+
+
+
+
+
+
+
+
+
 

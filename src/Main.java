@@ -81,12 +81,12 @@ public class Main {
 
      milk.setPrice(price);
 
-
         drinkMenu.add(water);
         drinkMenu.add(soda);
         drinkMenu.add(milk);
+        new Order(cupcakeMenu, drinkMenu);
 }
-//    new Order(cupcakeMenu, drinkMenu);
+
 
     public static class Soda extends Drink {
         private double price;
